@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis XV Años - Crisbert & Jeanpierre</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- FUENTES Y ESTILOS BASE --- */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+            position: relative;
+            overflow-x: hidden;
+        }
+        .font-handwriting {
+            font-family: 'Great Vibes', cursive;
+        }
+        .font-dancing {
+            font-family: 'Dancing Script', cursive;
+        }
+        .text-shadow {
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+        }
+        .text-shadow-light {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        .card-shadow {
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2), 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* --- EFECTOS MÁGICOS DEL BODY --- */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(147, 197, 253, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(125, 211, 252, 0.5) 0%, transparent 50%),
+                radial-gradient(circle at 60% 70%, rgba(96, 165, 250, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -3;
+            animation: magical-glow 8s ease-in-out infinite alternate;
+        }
+
+        /* ESTRELLAS BRILLANTES CAYENDO */
+        body::after {
+            content: '';
+            position: fixed;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background-image: 
+                radial-gradient(3px 3px at 20px 30px, rgba(255, 255, 255, 1), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255, 215, 0, 0.9), transparent),
+                radial-gradient(4px 4px at 90px 40px, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(2px 2px at 130px 80px, rgba(135, 206, 250, 0.9), transparent),
+                radial-gradient(3px 3px at 160px 30px, rgba(255, 255, 255, 1), transparent),
+                radial-gradient(2px 2px at 200px 90px, rgba(255, 192, 203, 0.8), transparent),
+                radial-gradient(4px 4px at 250px 60px, rgba(255, 255, 255, 0.9), transparent),
+                radial-gradient(1px 1px at 280px 20px, rgba(255, 215, 0, 0.7), transparent),
+                radial-gradient(3px 3px at 320px 100px, rgba(255, 255, 255, 1), transparent),
+                radial-gradient(2px 2px at 360px 50px, rgba(135, 206, 250, 0.8), transparent);
+            background-repeat: repeat;
+            background-size: 400px 150px;
+            pointer-events: none;
+            z-index: -1;
+            animation: falling-stars 15s linear infinite;
+        }
+
+        /* CAPA DE BRILLOS ADICIONALES */
+        .sparkles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0;
+            animation: sparkle-twinkle 3s ease-in-out infinite;
+        }
+
+        .sparkle:nth-child(2n) {
+            background: radial-gradient(circle, rgba(255, 215, 0, 1) 0%, transparent 70%);
+            animation-delay: 1s;
+        }
+
+        .sparkle:nth-child(3n) {
+            background: radial-gradient(circle, rgba(135, 206, 250, 1) 0%, transparent 70%);
+            animation-delay: 2s;
+            width: 6px;
+            height: 6px;
+        }
+
+        .sparkle:nth-child(4n) {
+            background: radial-gradient(circle, rgba(255, 192, 203, 1) 0%, transparent 70%);
+            animation-delay: 0.5s;
+        }
+
+        .sparkle:nth-child(5n) {
+            width: 3px;
+            height: 3px;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes magical-glow {
+            0%, 100% { 
+                opacity: 0.4;
+                filter: blur(1px);
+            }
+            50% { 
+                opacity: 0.7;
+                filter: blur(0px);
+            }
+        }
+
+        @keyframes falling-stars {
+            0% { 
+                transform: translateY(-150px) rotate(0deg);
+                opacity: 1;
+            }
+            100% { 
+                transform: translateY(calc(100vh + 150px)) rotate(360deg);
+                opacity: 0.3;
+            }
+        }
+
+        @keyframes sparkle-twinkle {
+            0%, 100% { 
+                opacity: 0;
+                transform: scale(0.5) rotate(0deg);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1.2) rotate(180deg);
+            }
+        }
+
+        /* --- ANIMACIÓN DE FONDO MEJORADA --- */
+        @keyframes background-pan {
+            0% { background-position: 0% 50%; }
+            33% { background-position: 100% 50%; }
+            66% { background-position: 50% 100%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animated-gradient {
+            background: linear-gradient(135deg, 
+                #f0f9ff 0%,   /* sky-50 */
+                #e0f2fe 20%,  /* sky-100 */
+                #bae6fd 40%,  /* sky-200 */
+                #7dd3fc 60%,  /* sky-300 */
+                #38bdf8 80%,  /* sky-400 */
+                #0ea5e9 100%); /* sky-500 */
+            background-size: 600% 600%;
+            animation: background-pan 25s ease infinite;
+        }
+
+        /* --- ANIMACIÓN DE APARICIÓN MEJORADA --- */
+        @keyframes fade-in-up {
+            0% { 
+                opacity: 0; 
+                transform: scale(0.8) translateY(30px); 
+            }
+            100% { 
+                opacity: 1; 
+                transform: scale(1) translateY(0); 
+            }
+        }
+        .animate-fade-in {
+            animation: fade-in-up 1.2s ease-out forwards;
+        }
+        
+        /* --- ESTILO MEJORADO PARA EL BORDE DE FLORES --- */
+        .flower-border {
+            margin: 2rem 0;
+            padding: 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .flower-border:hover {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+
+        .flower-border:hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 20px;
+            padding: 2px;
+            background: linear-gradient(45deg, #3b82f6, #60a5fa, #93c5fd, #60a5fa, #3b82f6);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        /* --- BOTONES MÁGICOS --- */
+        .magical-button {
+            background: linear-gradient(135deg, #0ea5e9, #3b82f6, #0284c7);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .magical-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.4), 
+                transparent);
+            transition: left 0.6s;
+        }
+
+        .magical-button:hover::before {
+            left: 100%;
+        }
+
+        .magical-button:hover {
+            transform: scale(1.08) translateY(-2px);
+            box-shadow: 0 15px 30px rgba(14, 165, 233, 0.4);
+        }
+    </style>
+</head>
+<body class="animated-gradient min-h-screen flex items-center justify-center p-4">
+
+    <!-- Capa de brillos adicionales -->
+    <div class="sparkles"></div>
+
+    <!-- Audio de fondo -->
+    <audio id="background-music" loop>
+        <source src="./src/Song.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <!-- Pantalla de Bienvenida -->
+    <div id="welcome-screen" class="fixed inset-0 bg-gradient-to-b from-sky-900/70 via-blue-900/80 to-cyan-900/90 flex flex-col items-center justify-center z-50 transition-opacity duration-500 text-white text-center p-8">
+        <h1 class="font-handwriting text-7xl md:text-8xl mb-6 animate-fade-in" style="animation-delay: 0.2s;">Un Baile Mágico</h1>
+        <p class="text-xl md:text-2xl mb-8 animate-fade-in font-light tracking-wide" style="animation-delay: 0.5s;">La magia está por comenzar...</p>
+        <button id="play-music-button" class="magical-button text-white font-bold text-lg py-4 px-10 rounded-full shadow-2xl transition-all duration-300 animate-fade-in" style="animation-delay: 0.8s;">
+            ✨ Abrir Invitación ✨
+        </button>
+    </div>
+
+    <!-- Contenido Principal de la Invitación -->
+    <main id="invitation-content" class="w-full max-w-lg bg-white/85 backdrop-blur-lg rounded-3xl card-shadow p-6 md:p-10 text-center text-gray-700 opacity-0 transition-all duration-1000 overflow-hidden relative" style="transform: scale(0.9);">
+        
+        <!-- Corona e Iniciales -->
+        <div class="relative flex justify-center items-center w-full h-40 pt-4">
+            <img src="./src/Castillo.webp" alt="Corona" class="absolute w-45 h-45 mt-20 opacity-30">
+            <h1 class="relative z-10 font-handwriting text-8xl text-blue-500 text-shadow">C.J.</h1>
+        </div>
+        <!-- Control de música mejorado -->
+         <div class="h-16"></div>
+        <div class="mt-8 flex flex-col items-center rounded-2xl p-6  w-full max-w-md mx-auto">
+            <div class="w-full flex items-center justify-between mb-4">
+                <div class="flex-1">
+                    <div id="current-song" class="text-4xl font-semibold text-gray-800 truncate text-center">DALE</div>
+                    <div class="text-6xl text-gray-500 text-center">PLAY</div>
+                </div>
+            </div>
+            
+            <div class="w-full flex items-center justify-center space-x-4 mb-4">
+                <button id="prev-track" class="text-blue-600 hover:text-blue-800 transition-colors p-2 rounded-full hover:bg-blue-50" aria-label="Canción anterior">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0019 16V8a1 1 0 00-1.6-.8l-5.333 4zM4.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0011 16V8a1 1 0 00-1.6-.8l-5.334 4z" />
+                    </svg>
+                </button>
+                
+                <button id="toggle-music" class="bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white p-4 rounded-full shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center ring-2 ring-white/30" aria-label="Reproducir/Pausar">
+                    <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <svg id="pause-icon" class="hidden h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </button>
+                
+                <button id="next-track" class="text-blue-600 hover:text-blue-800 transition-colors p-2 rounded-full hover:bg-blue-50" aria-label="Siguiente canción">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.933 12.8a1 1 0 000-1.6L6.6 7.2A1 1 0 005 8v8a1 1 0 001.6.8l5.333-4zM19.933 12.8a1 1 0 000-1.6l-5.333-4A1 1 0 0013 8v8a1 1 0 001.6.8l5.333-4z" />
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="w-full px-2">
+                <div class="flex justify-between text-sm text-gray-500 mb-1">
+                    <span id="current-time">0:00</span>
+                    <span id="duration">0:00</span>
+                </div>
+                <div id="progress-bar" class="h-2 bg-gray-200 rounded-full cursor-pointer overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-200 relative" style="width: 0%">
+                        <div class="absolute right-0 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow-md"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="h-4"></div>
+        <p class="text-2xl font-dancing">Érase una vez un sueño que se hace realidad...</p>
+        <h1 class="font-handwriting text-7xl md:text-8xl my-2 text-blue-500 text-shadow">Crisbert</h1>
+        <p class="text-xl font-light">celebra sus</p>
+        <h2 class="font-handwriting text-6xl md:text-7xl my-3 text-sky-500 text-shadow">XV Años</h2>
+        
+        <div class="my-8 text-left">
+            <img src="./src/Cenicienta.webp" alt="Imagen de Cenicienta" class="rounded-2xl ml-[-50px] max-w-full h-auto">
+        </div>
+
+        <!-- Sección Padre -->
+        <section class="flower-border">
+            <h3 class="font-handwriting text-4xl text-sky-600 mb-4 text-shadow-light">Con la bendición de mi Padre</h3>
+            <p class="font-bold text-xl text-gray-700 mb-4">Luis Hilario Bartolo</p>
+            <p class="text-lg italic px-4 mt-2 leading-relaxed text-gray-600 font-dancing">"Hija, verte florecer es mi mayor orgullo. Que esta noche mágica sea el inicio de un futuro brillante, lleno de felicidad y sueños cumplidos. Siempre estaré aquí para ti."</p>
+        </section>
+
+        <!-- Sección Madre -->
+        <section class="flower-border">
+            <h3 class="font-handwriting text-4xl text-sky-600 mb-4 text-shadow-light">Con la bendición de mi Madre</h3>
+            <p class="font-bold text-xl text-gray-700 mb-4">Maria Fabian Lazaro</p>
+            <p class="text-lg italic px-4 mt-2 leading-relaxed text-gray-600 font-dancing">"Mi niña, hoy dejas de ser una princesa de cuento para convertirte en la reina de tu propia vida. Que la alegría de este día te acompañe siempre. Te amo infinitamente."</p>
+        </section>
+
+        <div class="my-8 h-px bg-gradient-to-r from-transparent via-sky-300 to-transparent"></div>
+
+        <!-- Sección de la Celebración -->
+        <section class="my-8">
+            <h3 class="font-handwriting text-5xl text-sky-600 mb-6 text-shadow-light">La Celebración</h3>
+            <p class="text-xl font-bold text-gray-700 mb-4">El Sábado, 27 de Septiembre de 2025</p>
+            <div class="mt-4">
+                <p class="font-bold text-blue-600 text-xl mb-2">🎭 Recepción</p>
+                <p class="text-lg mb-2">A las <strong class="font-bold text-sky-600">6:00 PM</strong></p>
+                <p class="text-lg">En el <strong class="font-bold text-sky-600">"Local Comunal de Santa Rosa de Sacco"</strong></p>
+            </div>
+        </section>
+
+        <div class="my-8 h-px bg-gradient-to-r from-transparent via-sky-300 to-transparent"></div>
+
+        <!-- Código de Vestimenta -->
+        <section class="my-8">
+            <h3 class="font-handwriting text-5xl text-sky-600 mb-8 text-shadow-light">Código de Vestimenta</h3>
+            <div class="max-w-md mx-auto">
+                <div class="bg-gradient-to-r from-sky-600 via-blue-600 to-cyan-600 text-white rounded-2xl p-6 flex items-center justify-around shadow-2xl border-4 border-white/30">
+                    
+                    <!-- <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-12l-8 8-8-8"></path><path d="M4 12h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M4 20h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M12 4c-2.21 0-4 1.79-4 4v0c0 2.21 1.79 4 4 4h0c2.21 0 4-1.79 4-4v0c0-2.21-1.79-4-4-4z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg> -->
+                    <img src="./src/vestido.webp" alt="Traje" class="w-16 h-16 brightness-0 invert">
+                    <div class="text-center">
+                        <span class="text-2xl font-bold tracking-widest">SPORT</span><br>
+                        <span class="text-2xl font-bold tracking-widest">ELEGANTE</span>
+                    </div>
+                    <img src="./src/traje.svg" alt="Traje" class="w-16 h-16 brightness-0 invert">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contador -->
+        <div id="countdown" class="grid grid-cols-2 sm:grid-cols-4 gap-4 my-10 text-blue-600">
+             <div class="p-4 rounded-xl bg-white/50">
+                <span id="days" class="text-4xl font-bold block">00</span>
+                <p class="text-sm font-semibold mt-1">Días</p>
+            </div>
+             <div class="p-4 rounded-xl bg-white/50">
+                <span id="hours" class="text-4xl font-bold block">00</span>
+                <p class="text-sm font-semibold mt-1">Horas</p>
+            </div>
+             <div class="p-4 rounded-xl bg-white/50">
+                <span id="minutes" class="text-4xl font-bold block">00</span>
+                <p class="text-sm font-semibold mt-1">Minutos</p>
+            </div>
+             <div class="p-4 rounded-xl bg-white/50">
+                <span id="seconds" class="text-4xl font-bold block">00</span>
+                <p class="text-sm font-semibold mt-1">Segundos</p>
+            </div>
+        </div>
+
+        <!-- Botones de Acción -->
+        <div class="flex flex-col sm:flex-row gap-6 justify-center mt-10">
+            <a href="https://maps.app.goo.gl/6DALwuh3BZsMcZvJ7" target="_blank" class="magical-button text-white font-bold text-lg py-4 px-8 rounded-full shadow-2xl flex items-center justify-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" /></svg>
+                Ver Ubicación
+            </a>
+            <a href="https://wa.me/51997223250?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20los%20XV%20años%20de%20Crisbert.%20¡Nos%20vemos%20en%20el%20baile!" target="_blank" class="magical-button text-white font-bold text-lg py-4 px-8 rounded-full shadow-2xl flex items-center justify-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.518.759a1.65 1.65 0 00-1.845 2.436l2.436 2.436a1.65 1.65 0 002.436-1.845l.759-1.518a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" /></svg>
+                Confirmar Asistencia
+            </a>
+        </div>
+        
+        <p class="mt-12 text-2xl font-handwriting text-blue-600">¡Te espero para que esta noche sea inolvidable! 🌟</p>
+
+    </main>
+
+    <script>
+        // Crear brillos adicionales dinámicamente
+        function createSparkles() {
+            const sparklesContainer = document.querySelector('.sparkles');
+            const numberOfSparkles = 50;
+            
+            for (let i = 0; i < numberOfSparkles; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                
+                // Posición aleatoria
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                
+                // Retraso de animación aleatorio
+                sparkle.style.animationDelay = Math.random() * 3 + 's';
+                
+                // Duración de animación aleatoria
+                sparkle.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                
+                sparklesContainer.appendChild(sparkle);
+            }
+        }
+
+        // Crear brillos cuando se carga la página
+        createSparkles();
+
+        // Elementos del DOM
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const playMusicButton = document.getElementById('play-music-button');
+        const backgroundMusic = document.getElementById('background-music');
+        const invitationContent = document.getElementById('invitation-content');
+        const toggleMusicBtn = document.getElementById('toggle-music');
+        const playIcon = document.getElementById('play-icon');
+        const pauseIcon = document.getElementById('pause-icon');
+        const prevTrackBtn = document.getElementById('prev-track');
+        const nextTrackBtn = document.getElementById('next-track');
+        const progressBar = document.getElementById('progress-bar');
+        const currentTimeEl = document.getElementById('current-time');
+        const durationEl = document.getElementById('duration');
+        
+        let isPlaying = false;
+        let updateProgressInterval;
+
+        // Lista de canciones
+        const songs = [
+            {
+                title: 'Canción Principal',
+                src: './src/Song.mp3'
+            }
+        ];
+        
+        // Cargar la canción principal
+        backgroundMusic.src = songs[0].src;
+        
+        let currentSongIndex = 0;
+
+        // Formatear tiempo (segundos a MM:SS)
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            seconds = Math.floor(seconds % 60);
+            return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }
+
+        // Actualizar barra de progreso
+        function updateProgress() {
+            if (backgroundMusic.duration) {
+                const progress = (backgroundMusic.currentTime / backgroundMusic.duration) * 100;
+                const progressBar = document.querySelector('#progress-bar > div');
+                if (progressBar) {
+                    progressBar.style.width = progress + '%';
+                }
+                
+                // Actualizar tiempo actual
+                currentTimeEl.textContent = formatTime(backgroundMusic.currentTime);
+                durationEl.textContent = formatTime(backgroundMusic.duration);
+            }
+        }
+
+        // Saltar a un tiempo específico en la canción
+        function setProgress(e) {
+            const progressBar = e.currentTarget;
+            const rect = progressBar.getBoundingClientRect();
+            let pos = (e.clientX - rect.left) / rect.width;
+            pos = Math.max(0, Math.min(1, pos)); // Asegurar que esté entre 0 y 1
+            backgroundMusic.currentTime = pos * backgroundMusic.duration;
+            
+            // Actualización visual inmediata
+            const progressBarFill = progressBar.querySelector('div');
+            if (progressBarFill) {
+                progressBarFill.style.width = (pos * 100) + '%';
+            }
+        }
+
+        // Cambiar canción
+        function loadSong(songIndex) {
+            const song = songs[songIndex];
+            backgroundMusic.src = song.src;
+            document.getElementById('current-song').textContent = song.title;
+            
+            // Actualizar la interfaz para mostrar que se está cargando
+            const playIcon = document.getElementById('play-icon');
+            const pauseIcon = document.getElementById('pause-icon');
+            playIcon.classList.add('hidden');
+            pauseIcon.classList.remove('hidden');
+            
+            // Reproducir automáticamente si estaba reproduciéndose
+            if (isPlaying) {
+                const playPromise = backgroundMusic.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log("Error al reproducir:", error);
+                        // Si falla la reproducción automática, mostrar el botón de play
+                        playIcon.classList.remove('hidden');
+                        pauseIcon.classList.add('hidden');
+                    });
+                }
+            } else {
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+            }
+        }
+
+        // Siguiente canción
+        function nextSong() {
+            currentSongIndex = (currentSongIndex + 1) % songs.length;
+            loadSong(currentSongIndex);
+        }
+
+        // Canción anterior
+        function prevSong() {
+            currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+            loadSong(currentSongIndex);
+        }
+
+        // Iniciar actualización de progreso
+        function startProgressUpdate() {
+            updateProgressInterval = setInterval(updateProgress, 500);
+        }
+
+        // Detener actualización de progreso
+        function stopProgressUpdate() {
+            clearInterval(updateProgressInterval);
+        }
+
+        // Event Listeners
+        playMusicButton.addEventListener('click', () => {
+            // Mostrar el contenido de la invitación
+            invitationContent.style.opacity = '1';
+            invitationContent.style.transform = 'scale(1)';
+            
+            // Ocultar la pantalla de bienvenida
+            welcomeScreen.style.opacity = '0';
+            welcomeScreen.style.pointerEvents = 'none';
+            
+            // Iniciar la reproducción de música
+            const playPromise = backgroundMusic.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log("La reproducción automática fue bloqueada:", error);
+                    // Mostrar el contenido de todos modos, incluso si falla la reproducción
+                    invitationContent.style.opacity = '1';
+                    invitationContent.style.transform = 'scale(1)';
+                    welcomeScreen.style.opacity = '0';
+                    welcomeScreen.style.pointerEvents = 'none';
+                });
+            }
+            
+            isPlaying = true;
+            document.getElementById('play-icon').classList.add('hidden');
+            document.getElementById('pause-icon').classList.remove('hidden');
+            
+            // Agregar clase de animación al botón
+            const toggleBtn = document.getElementById('toggle-music');
+            toggleBtn.classList.add('ring-4', 'ring-blue-200');
+            setTimeout(() => {
+                toggleBtn.classList.remove('ring-4', 'ring-blue-200');
+            }, 1000);
+        });
+        
+        toggleMusicBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                backgroundMusic.pause();
+                document.getElementById('play-icon').classList.remove('hidden');
+                document.getElementById('pause-icon').classList.add('hidden');
+            } else {
+                const playPromise = backgroundMusic.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log("Error al reproducir:", error);
+                    });
+                }
+                document.getElementById('play-icon').classList.add('hidden');
+                document.getElementById('pause-icon').classList.remove('hidden');
+                
+                // Efecto de pulso al reproducir
+                toggleMusicBtn.classList.add('ring-4', 'ring-blue-200');
+                setTimeout(() => {
+                    toggleMusicBtn.classList.remove('ring-4', 'ring-blue-200');
+                }, 1000);
+            }
+            isPlaying = !isPlaying;
+        });
+        
+        // Navegación entre canciones
+        nextTrackBtn.addEventListener('click', () => {
+            nextSong();
+            // Efecto visual al cambiar de canción
+            nextTrackBtn.classList.add('scale-110');
+            setTimeout(() => nextTrackBtn.classList.remove('scale-110'), 200);
+        });
+        
+        prevTrackBtn.addEventListener('click', () => {
+            prevSong();
+            // Efecto visual al cambiar de canción
+            prevTrackBtn.classList.add('scale-110');
+            setTimeout(() => prevTrackBtn.classList.remove('scale-110'), 200);
+        });
+        
+        // Interacción con la barra de progreso
+        let isDragging = false;
+        progressBar.addEventListener('click', setProgress);
+        
+        // Soporte para arrastrar la barra de progreso
+        progressBar.addEventListener('mousedown', () => { isDragging = true; });
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                const progressBar = document.getElementById('progress-bar');
+                const rect = progressBar.getBoundingClientRect();
+                let pos = (e.clientX - rect.left) / rect.width;
+                pos = Math.max(0, Math.min(1, pos)); // Asegurar que esté entre 0 y 1
+                backgroundMusic.currentTime = pos * backgroundMusic.duration;
+                
+                // Actualización visual inmediata
+                const progressBarFill = progressBar.querySelector('div');
+                if (progressBarFill) {
+                    progressBarFill.style.width = (pos * 100) + '%';
+                }
+            }
+        });
+        document.addEventListener('mouseup', () => { isDragging = false; });
+        
+        // Eventos del reproductor de audio
+        backgroundMusic.addEventListener('timeupdate', updateProgress);
+        backgroundMusic.addEventListener('ended', nextSong);
+        
+        // Actualizar duración cuando esté disponible
+        backgroundMusic.addEventListener('loadedmetadata', function() {
+            durationEl.textContent = formatTime(backgroundMusic.duration);
+            // Forzar una actualización del progreso
+            updateProgress();
+        });
+        
+        // Manejar errores de carga de audio
+        backgroundMusic.addEventListener('error', function() {
+            console.error("Error al cargar el archivo de audio");
+            document.getElementById('current-song').textContent = "Error al cargar la canción";
+            isPlaying = false;
+            playIcon.classList.remove('hidden');
+            pauseIcon.classList.add('hidden');
+            stopProgressUpdate();
+        });
+
+        // --- LÓGICA DEL CONTADOR ---
+        const eventDate = new Date("Sep 27, 2025 18:00:00").getTime();
+        const countdownFunction = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "<div class='col-span-2 sm:col-span-4 text-center'><p class='text-2xl font-bold text-blue-600 font-handwriting'>¡El gran día ha llegado! ✨</p></div>";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+        }, 1000);
+    </script>
+
+</body>
+</html>
